@@ -1,14 +1,17 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var Game = require('./components/game');
 
-var MyComponent = React.createClass({
+var Minesweeper = React.createClass({
   render: function () {
     return(
-      <div>Hello World</div>
+      <div>
+        <Game />
+      </div>
     );
   }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  ReactDOM.render(<MyComponent/>, document.getElementById('root'));
+  ReactDOM.render(<Minesweeper />, document.getElementById('root'));
 });
