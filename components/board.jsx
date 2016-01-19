@@ -7,13 +7,13 @@ var Board = React.createClass({
     var board = this;
     var grid = this.props.board.grid.map(function (row, index) {
       return(
-        <div key={index}>
-          {
-            row.map(function (tile, index) {
-              return(
-                <Tile object={tile}
-                      updateGame={board.props.updateGame}
-                      key={index} />
+        <div className="column" key={index}>
+        {
+        row.map(function (tile, index) {
+        return(
+          <Tile object={tile}
+                updateGame={board.props.updateGame}
+                key={index} />
               );
             })
           }

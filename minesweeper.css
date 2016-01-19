@@ -1,0 +1,45 @@
+body, h1, figure, ul, li {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  background: transparent;
+}
+
+#root {
+  display: block;
+  background: lightgrey;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  border: 5px solid black;
+}
+
+.column {
+  list-style: none;
+  float: left;
+  display: block;
+}
+
+.tile {
+  width: 25px;
+  height: 25px;
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid black;
+  /*background: red;*/
+}
+
+.revealed {
+  border: 0;
+}
+
+.bombed {
+  color: red;
+}
+
+/*.grid-point:hover {
+  background: red;
+}*/
