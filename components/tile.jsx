@@ -7,30 +7,36 @@ var Tile = React.createClass({
     this.klass = "";
     var tileDisplay = Tile.GetTileDisplay(this);
     var klass = "tile " + this.klass;
-    return <div className={klass}>
+    return <div className={klass}
+                onClick={this.handleClick}>
                 {tileDisplay}
            </div>;
-    }
+    },
+
+  handleClick: function (e) {
+    var flagged = e.altKey ? true : false;
+    this.props.updateGame(this.props.tile, flagged);
+  }
 });
 
 Tile.GetTileDisplay = function (tile) {
-  if (tile.props.object.flagged) {
+  if (tile.props.tile.flagged) {
     tile.klass = "flagged";
     return "⚑";
-  } else if (tile.props.object.revealed && tile.props.object.bombed) {
+  } else if (tile.props.tile.explored && tile.props.tile.bombed) {
     tile.klass = "bombed";
     return "💣";
-  } else if (tile.props.object.revealed) {
-    tile.klass = "revealed";
-    if (tile.props.object.adjacentBombCount() > 0) {
-      return tile.props.object.adjacentBombCount();
+  } else if (tile.props.tile.explored) {
+    tile.klass = "explored";
+    if (tile.props.tile.adjacentBombCount() > 0) {
+      return tile.props.tile.adjacentBombCount();
     } else {
       return "_";
     }
-  } else if (!tile.props.object.revealed) {
+  } else if (!tile.props.tile.explored) {
     return "[]";
   }
-}
+};
 
 
 module.exports = Tile;

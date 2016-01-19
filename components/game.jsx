@@ -9,8 +9,13 @@ var Game = React.createClass({
     });
   },
 
-  updateGame: function () {
-    console.log("hello");
+  updateGame: function (tile, flagged) {
+    if (flagged) {
+      tile.toggleFlag();
+    } else {
+      tile.explore();
+    }
+    this.setState({board: this.state.board});
   },
 
   render: function () {

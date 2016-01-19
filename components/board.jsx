@@ -5,15 +5,15 @@ var Tile = require('./tile');
 var Board = React.createClass({
   render: function () {
     var board = this;
-    var grid = this.props.board.grid.map(function (row, index) {
+    var grid = this.props.board.grid.map(function (row, idx1) {
       return(
-        <div className="column" key={index}>
+        <div className="column" key={idx1}>
         {
-        row.map(function (tile, index) {
+        row.map(function (tile, idx2) {
         return(
-          <Tile object={tile}
+          <Tile tile={tile}
                 updateGame={board.props.updateGame}
-                key={index} />
+                key={idx2} />
               );
             })
           }
